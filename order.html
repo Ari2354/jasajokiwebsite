@@ -1,0 +1,179 @@
+<!DOCTYPE html>
+<html lang="id">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Detail Pesanan - WebDevPro</title>
+    
+    <!-- Google Fonts -->
+    <link href="https://fonts.googleapis.com/css2?family=Poppins:wght@400;500;600;700&display=swap" rel="stylesheet">
+    
+    <!-- Font Awesome -->
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0-beta3/css/all.min.css">
+    
+    <!-- Tailwind CSS -->
+    <script src="https://cdn.tailwindcss.com"></script>
+    
+    <script>
+        tailwind.config = {
+            theme: {
+                extend: {
+                    colors: {
+                        primary: '#2a9d8f',
+                        secondary: '#264653',
+                        accent: '#e9c46a',
+                    }
+                }
+            }
+        }
+    </script>
+    
+    <link rel="stylesheet" href="styles.css">
+</head>
+<body class="bg-gray-50">
+    <!-- Header -->
+    <header class="fixed w-full bg-white shadow-lg z-50">
+        <div class="container mx-auto px-4 py-4">
+            <div class="flex items-center justify-between">
+                <a href="/" class="text-2xl font-bold text-primary">WebDev<span class="text-secondary">Pro</span></a>
+                
+                <!-- User Menu -->
+                <div class="relative" id="userMenu">
+                    <button class="flex items-center space-x-2 text-gray-700 hover:text-primary focus:outline-none">
+                        <span class="text-sm font-medium">Menu Akun</span>
+                        <svg class="w-5 h-5" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+                            <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M19 9l-7 7-7-7"></path>
+                        </svg>
+                    </button>
+                    
+                    <div class="absolute right-0 mt-2 w-48 bg-white rounded-lg shadow-lg py-2 hidden">
+                        <a href="#" class="block px-4 py-2 text-sm text-gray-700 hover:bg-gray-100">Profil Saya</a>
+                        <a href="#" class="block px-4 py-2 text-sm text-gray-700 hover:bg-gray-100">Pesanan Saya</a>
+                        <a href="#" class="block px-4 py-2 text-sm text-red-600 hover:bg-gray-100">Keluar</a>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </header>
+
+    <!-- Main Content -->
+    <main class="pt-24 pb-16">
+        <div class="container mx-auto px-4">
+            <div class="max-w-4xl mx-auto">
+                <!-- Order Summary -->
+                <div class="bg-white rounded-xl shadow-lg p-8 mb-8">
+                    <h1 class="text-3xl font-bold text-gray-800 mb-6">Detail Pesanan</h1>
+                    
+                    <div class="border-b border-gray-200 pb-6 mb-6">
+                        <h2 class="text-xl font-semibold text-gray-800 mb-4">Paket yang Dipilih:</h2>
+                        <div class="bg-gray-50 rounded-lg p-4">
+                            <div class="flex items-center justify-between">
+                                <div>
+                                    <h3 class="text-lg font-semibold text-primary">Paket Standard</h3>
+                                    <p class="text-gray-600 mt-1">Multi Page Website dengan Admin Dashboard</p>
+                                </div>
+                                <p class="text-2xl font-bold text-gray-800">Rp 999K</p>
+                            </div>
+                        </div>
+                    </div>
+                    
+                    <!-- Payment Instructions -->
+                    <div class="space-y-6">
+                        <h2 class="text-xl font-semibold text-gray-800">Instruksi Pembayaran</h2>
+                        
+                        <div class="bg-accent bg-opacity-10 rounded-lg p-4">
+                            <p class="text-gray-700 mb-4">Silakan transfer ke salah satu rekening berikut:</p>
+                            
+                            <div class="space-y-4">
+                                <div class="flex items-center justify-between p-4 bg-white rounded-lg">
+                                    <div class="flex items-center space-x-4">
+                                        <img src="https://upload.wikimedia.org/wikipedia/id/thumb/5/55/BNI_logo.svg/1200px-BNI_logo.svg.png" alt="BNI" class="h-8">
+                                        <div>
+                                            <p class="font-medium text-gray-800">Bank BNI</p>
+                                            <p class="text-gray-600">0123456789</p>
+                                            <p class="text-sm text-gray-500">a.n. WebDevPro Indonesia</p>
+                                        </div>
+                                    </div>
+                                    <button class="text-primary hover:text-opacity-80" onclick="copyToClipboard('0123456789')">
+                                        <svg class="w-6 h-6" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+                                            <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M8 5H6a2 2 0 00-2 2v12a2 2 0 002 2h10a2 2 0 002-2v-1M8 5a2 2 0 002 2h2a2 2 0 002-2M8 5a2 2 0 012-2h2a2 2 0 012 2m0 0h2a2 2 0 012 2v3m2 4H10m0 0l3-3m-3 3l3 3"></path>
+                                        </svg>
+                                    </button>
+                                </div>
+                                
+                                <div class="flex items-center justify-between p-4 bg-white rounded-lg">
+                                    <div class="flex items-center space-x-4">
+                                        <img src="https://upload.wikimedia.org/wikipedia/commons/thumb/6/68/BANK_BRI_logo.svg/2560px-BANK_BRI_logo.svg.png" alt="BRI" class="h-8">
+                                        <div>
+                                            <p class="font-medium text-gray-800">Bank BRI</p>
+                                            <p class="text-gray-600">9876543210</p>
+                                            <p class="text-sm text-gray-500">a.n. WebDevPro Indonesia</p>
+                                        </div>
+                                    </div>
+                                    <button class="text-primary hover:text-opacity-80" onclick="copyToClipboard('9876543210')">
+                                        <svg class="w-6 h-6" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+                                            <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M8 5H6a2 2 0 00-2 2v12a2 2 0 002 2h10a2 2 0 002-2v-1M8 5a2 2 0 002 2h2a2 2 0 002-2M8 5a2 2 0 012-2h2a2 2 0 012 2m0 0h2a2 2 0 012 2v3m2 4H10m0 0l3-3m-3 3l3 3"></path>
+                                        </svg>
+                                    </button>
+                                </div>
+                            </div>
+                            
+                            <div class="mt-6">
+                                <p class="text-sm text-gray-600">Setelah melakukan pembayaran, silakan konfirmasi dengan mengunggah bukti transfer:</p>
+                                
+                                <form id="paymentForm" class="mt-4">
+                                    <div class="space-y-4">
+                                        <div>
+                                            <label class="block text-sm font-medium text-gray-700 mb-1">Upload Bukti Transfer</label>
+                                            <input type="file" accept="image/*" class="w-full px-4 py-2 border border-gray-300 rounded-lg focus:ring-2 focus:ring-primary focus:border-primary">
+                                        </div>
+                                        <button type="submit" class="w-full bg-primary text-white py-2 px-4 rounded-lg hover:bg-opacity-90 transition-colors">
+                                            Konfirmasi Pembayaran
+                                        </button>
+                                    </div>
+                                </form>
+                            </div>
+                        </div>
+                        
+                        <div class="bg-gray-50 rounded-lg p-4">
+                            <h3 class="font-semibold text-gray-800 mb-2">Catatan:</h3>
+                            <ul class="list-disc list-inside space-y-2 text-gray-600">
+                                <li>Pembayaran akan diverifikasi dalam waktu 1x24 jam</li>
+                                <li>Pengerjaan website akan dimulai setelah pembayaran terverifikasi</li>
+                                <li>Status pesanan dapat dipantau melalui menu "Pesanan Saya"</li>
+                            </ul>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </main>
+
+    <script src="scripts.js"></script>
+    <script>
+        // Copy to clipboard function
+        function copyToClipboard(text) {
+            navigator.clipboard.writeText(text).then(() => {
+                alert('Nomor rekening berhasil disalin!');
+            }).catch(err => {
+                console.error('Failed to copy:', err);
+            });
+        }
+        
+        // Toggle user menu
+        const userMenu = document.getElementById('userMenu');
+        const userMenuButton = userMenu.querySelector('button');
+        const userMenuDropdown = userMenu.querySelector('div.absolute');
+        
+        userMenuButton.addEventListener('click', () => {
+            userMenuDropdown.classList.toggle('hidden');
+        });
+        
+        document.addEventListener('click', (e) => {
+            if (!userMenu.contains(e.target)) {
+                userMenuDropdown.classList.add('hidden');
+            }
+        });
+    </script>
+</body>
+</html>

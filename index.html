@@ -1,224 +1,454 @@
 <!DOCTYPE html>
 <html lang="id">
 <head>
-<meta charset="UTF-8" />
-<meta name="viewport" content="width=device-width, initial-scale=1" />
-<title>Jasa Pembuatan Website dan Aplikasi Web untuk UMKM & Pelajar</title>
-<meta name="description" content="Jasa pembuatan website dan aplikasi web profesional untuk UMKM dan pelajar dengan harga terjangkau dan layanan cepat." />
-<meta name="keywords" content="jasa pembuatan website, aplikasi web, UMKM, pelajar, harga terjangkau, layanan cepat" />
-<meta name="author" content="Jasa Website UMKM & Pelajar" />
-<!-- Open Graph / Facebook -->
-<meta property="og:type" content="website" />
-<meta property="og:title" content="Jasa Pembuatan Website dan Aplikasi Web untuk UMKM & Pelajar" />
-<meta property="og:description" content="Jasa pembuatan website dan aplikasi web profesional untuk UMKM dan pelajar dengan harga terjangkau dan layanan cepat." />
-<meta property="og:image" content="https://yourdomain.com/og-image.jpg" />
-<!-- Twitter -->
-<meta property="twitter:card" content="summary_large_image" />
-<meta property="twitter:title" content="Jasa Pembuatan Website dan Aplikasi Web untuk UMKM & Pelajar" />
-<meta property="twitter:description" content="Jasa pembuatan website dan aplikasi web profesional untuk UMKM dan pelajar dengan harga terjangkau dan layanan cepat." />
-<meta property="twitter:image" content="https://yourdomain.com/twitter-image.jpg" />
-<link rel="stylesheet" href="styles.css" />
-<script defer src="scripts.js"></script>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1" />
+    <title>Jasa Pembuatan Website dan Aplikasi Web untuk UMKM & Pelajar</title>
+    <meta name="description" content="Jasa pembuatan website dan aplikasi web profesional untuk UMKM dan pelajar dengan harga terjangkau dan layanan cepat." />
+    <meta name="keywords" content="jasa pembuatan website, aplikasi web, UMKM, pelajar, harga terjangkau, layanan cepat" />
+    <meta name="author" content="Jasa Website UMKM & Pelajar" />
+    
+    <!-- Open Graph / Facebook -->
+    <meta property="og:type" content="website" />
+    <meta property="og:title" content="Jasa Pembuatan Website dan Aplikasi Web untuk UMKM & Pelajar" />
+    <meta property="og:description" content="Jasa pembuatan website dan aplikasi web profesional untuk UMKM dan pelajar dengan harga terjangkau dan layanan cepat." />
+    <meta property="og:image" content="https://images.pexels.com/photos/3184305/pexels-photo-3184305.jpeg" />
+    
+    <!-- Twitter -->
+    <meta property="twitter:card" content="summary_large_image" />
+    <meta property="twitter:title" content="Jasa Pembuatan Website dan Aplikasi Web untuk UMKM & Pelajar" />
+    <meta property="twitter:description" content="Jasa pembuatan website dan aplikasi web profesional untuk UMKM dan pelajar dengan harga terjangkau dan layanan cepat." />
+    <meta property="twitter:image" content="https://images.pexels.com/photos/3184305/pexels-photo-3184305.jpeg" />
+
+    <!-- Google Fonts -->
+    <link href="https://fonts.googleapis.com/css2?family=Montserrat:wght@400;500;600;700&family=Poppins:wght@400;500;600;700&display=swap" rel="stylesheet">
+    
+    <!-- Font Awesome -->
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0-beta3/css/all.min.css">
+    
+    <!-- Favicon -->
+    <link rel="icon" type="image/x-icon" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0-beta3/webfonts/fa-solid-900.ttf">
+    
+    <!-- Tailwind CSS -->
+    <script src="https://cdn.tailwindcss.com"></script>
+    
+    <script>
+        tailwind.config = {
+            theme: {
+                extend: {
+                    colors: {
+                        primary: '#2a9d8f',
+                        secondary: '#264653',
+                        accent: '#e9c46a',
+                    },
+                    fontFamily: {
+                        montserrat: ['Montserrat', 'sans-serif'],
+                        poppins: ['Poppins', 'sans-serif'],
+                    },
+                    spacing: {
+                        '128': '32rem',
+                    },
+                    zIndex: {
+                        '100': '100',
+                    },
+                    boxShadow: {
+                        'custom': '0 4px 6px -1px rgba(0, 0, 0, 0.1), 0 2px 4px -1px rgba(0, 0, 0, 0.06)',
+                    }
+                }
+            },
+            variants: {
+                extend: {
+                    opacity: ['group-hover'],
+                    transform: ['group-hover'],
+                    scale: ['group-hover'],
+                }
+            }
+        }
+    </script>
+
+    <link rel="stylesheet" href="styles.css" />
+    
+    <!-- Service Modal Styles -->
+    <style>
+        .modal {
+            display: none;
+            position: fixed;
+            top: 0;
+            left: 0;
+            width: 100%;
+            height: 100%;
+            background: rgba(0, 0, 0, 0.5);
+            backdrop-filter: blur(5px);
+            z-index: 1000;
+            opacity: 0;
+            transition: opacity 0.3s ease;
+        }
+        
+        .modal.show {
+            display: flex;
+            opacity: 1;
+        }
+        
+        .modal-content {
+            background: white;
+            padding: 2rem;
+            border-radius: 1rem;
+            max-width: 90%;
+            width: 800px;
+            margin: auto;
+            transform: translateY(-50px);
+            transition: transform 0.3s ease;
+        }
+        
+        .modal.show .modal-content {
+            transform: translateY(0);
+        }
+    </style>
 </head>
-<body>
-
-<header>
-  <div class="container header-container" role="banner">
-    <div class="logo" aria-label="Logo Jasa Website UMKM" role="img" tabindex="0">
-      <svg width="80" height="80" viewBox="0 0 180 60" fill="none" xmlns="http://www.w3.org/2000/svg" role="img" aria-label="Logo Jasa Website UMKM" >
-        <title>Jasa Website UMKM Logo</title>
-        <rect width="60" height="60" rx="12" ry="12" fill="#2a9d8f"/>
-        <path d="M20 18 L35 18 L30 30 L45 30 L35 50 L25 50 L35 30 L25 18 Z" fill="#e9c46a"/>
-        <text x="70" y="36" font-family="'Montserrat', sans-serif" font-weight="700" font-size="22" fill="#264653" letter-spacing="0.5">
-          Jasa Website
-        </text>
-        <text x="70" y="55" font-family="'Poppins', sans-serif" font-weight="600" font-size="14" fill="#2a9d8f" letter-spacing="0.25">
-          UMKM & Pelajar
-        </text>
-      </svg>
+<body class="bg-gray-50">
+    <!-- Service Modal -->
+    <div id="serviceModal" class="modal">
+        <div class="modal-content">
+            <div class="flex justify-between items-center mb-6">
+                <h2 class="text-3xl font-bold text-gray-800">Pilih Paket Layanan</h2>
+                <button id="closeModal" class="text-gray-500 hover:text-gray-700 focus:outline-none">
+                    <svg class="w-6 h-6" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+                        <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M6 18L18 6M6 6l12 12"></path>
+                    </svg>
+                </button>
+            </div>
+            
+            <div class="grid grid-cols-1 md:grid-cols-3 gap-6">
+                <!-- Basic Package -->
+                <div class="bg-white p-6 rounded-xl shadow-lg hover:shadow-xl transition-shadow">
+                    <div class="text-center mb-4">
+                        <h3 class="text-2xl font-bold text-gray-800">Basic</h3>
+                        <p class="text-gray-600 mt-2">Mulai dari</p>
+                        <p class="text-3xl font-bold text-primary mt-2">Rp 499K</p>
+                    </div>
+                    <ul class="space-y-3 mb-6">
+                        <li class="flex items-center text-gray-600">
+                            <svg class="w-5 h-5 text-green-500 mr-2" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+                                <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M5 13l4 4L19 7"></path>
+                            </svg>
+                            Landing Page
+                        </li>
+                        <li class="flex items-center text-gray-600">
+                            <svg class="w-5 h-5 text-green-500 mr-2" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+                                <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M5 13l4 4L19 7"></path>
+                            </svg>
+                            Responsive Design
+                        </li>
+                        <li class="flex items-center text-gray-600">
+                            <svg class="w-5 h-5 text-green-500 mr-2" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+                                <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M5 13l4 4L19 7"></path>
+                            </svg>
+                            1x Revisi
+                        </li>
+                    </ul>
+                    <a href="basic.html" class="block w-full py-3 px-6 text-center bg-primary text-white rounded-lg hover:bg-opacity-90 transition-colors">
+                        Pilih Paket
+                    </a>
+                </div>
+                
+                <!-- Standard Package -->
+                <div class="bg-white p-6 rounded-xl shadow-lg hover:shadow-xl transition-shadow border-2 border-primary">
+                    <div class="text-center mb-4">
+                        <span class="bg-primary text-white px-4 py-1 rounded-full text-sm">POPULER</span>
+                        <h3 class="text-2xl font-bold text-gray-800 mt-4">Standard</h3>
+                        <p class="text-gray-600 mt-2">Mulai dari</p>
+                        <p class="text-3xl font-bold text-primary mt-2">Rp 999K</p>
+                    </div>
+                    <ul class="space-y-3 mb-6">
+                        <li class="flex items-center text-gray-600">
+                            <svg class="w-5 h-5 text-green-500 mr-2" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+                                <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M5 13l4 4L19 7"></path>
+                            </svg>
+                            Multi Page Website
+                        </li>
+                        <li class="flex items-center text-gray-600">
+                            <svg class="w-5 h-5 text-green-500 mr-2" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+                                <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M5 13l4 4L19 7"></path>
+                            </svg>
+                            Admin Dashboard
+                        </li>
+                        <li class="flex items-center text-gray-600">
+                            <svg class="w-5 h-5 text-green-500 mr-2" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+                                <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M5 13l4 4L19 7"></path>
+                            </svg>
+                            3x Revisi
+                        </li>
+                    </ul>
+                    <a href="standard.html" class="block w-full py-3 px-6 text-center bg-primary text-white rounded-lg hover:bg-opacity-90 transition-colors">
+                        Pilih Paket
+                    </a>
+                </div>
+                
+                <!-- Custom Package -->
+                <div class="bg-white p-6 rounded-xl shadow-lg hover:shadow-xl transition-shadow">
+                    <div class="text-center mb-4">
+                        <h3 class="text-2xl font-bold text-gray-800">Custom</h3>
+                        <p class="text-gray-600 mt-2">Mulai dari</p>
+                        <p class="text-3xl font-bold text-primary mt-2">Rp 1.499K</p>
+                    </div>
+                    <ul class="space-y-3 mb-6">
+                        <li class="flex items-center text-gray-600">
+                            <svg class="w-5 h-5 text-green-500 mr-2" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+                                <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M5 13l4 4L19 7"></path>
+                            </svg>
+                            Custom Website
+                        </li>
+                        <li class="flex items-center text-gray-600">
+                            <svg class="w-5 h-5 text-green-500 mr-2" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+                                <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M5 13l4 4L19 7"></path>
+                            </svg>
+                            Full Features
+                        </li>
+                        <li class="flex items-center text-gray-600">
+                            <svg class="w-5 h-5 text-green-500 mr-2" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+                                <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M5 13l4 4L19 7"></path>
+                            </svg>
+                            Unlimited Revisi
+                        </li>
+                    </ul>
+                    <a href="custom.html" class="block w-full py-3 px-6 text-center bg-primary text-white rounded-lg hover:bg-opacity-90 transition-colors">
+                        Pilih Paket
+                    </a>
+                </div>
+            </div>
+        </div>
     </div>
+    <!-- Header -->
+    <header class="sticky top-0 w-full bg-white/95 backdrop-blur-sm shadow-lg z-50">
+        <div class="container mx-auto px-4 py-4 flex items-center justify-between">
+            <div class="flex items-center space-x-4">
+                <a href="#" class="text-2xl font-bold text-primary">
+                    WebDev<span class="text-accent">Pro</span>
+                </a>
+            </div>
+            
+            <nav class="hidden md:flex items-center space-x-8">
+                <a href="#features" class="nav-link">Keunggulan</a>
+                <a href="#services" class="nav-link" id="showServiceModal">Layanan</a>
+                <a href="#how" class="nav-link">Cara Kerja</a>
+                <a href="#portfolio" class="nav-link">Portofolio</a>
+                <a href="#team" class="nav-link">Tim</a>
+                <a href="#contact" class="nav-link">Kontak</a>
+            </nav>
+            
+            <button id="menuToggle" class="md:hidden text-gray-600 hover:text-gray-900 focus:outline-none transition-colors duration-200 p-2 rounded-lg hover:bg-gray-100" aria-label="Toggle Menu" aria-expanded="false">
+                <svg class="h-6 w-6 transform transition-transform duration-200" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+                    <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M4 6h16M4 12h16M4 18h16"></path>
+                </svg>
+            </button>
 
-    <button class="menu-toggle" aria-label="Toggle menu" aria-expanded="false" aria-controls="primary-navigation">
-      &#9776;
-    </button>
+            <!-- Mobile Menu -->
+            <div id="mobileMenu" class="fixed inset-0 bg-black bg-opacity-50 backdrop-blur-sm z-50 hidden md:hidden" aria-hidden="true">
+                <div class="fixed right-0 top-0 h-full w-64 bg-white shadow-lg transform translate-x-full transition-transform duration-300 ease-in-out">
+                    <div class="p-6">
+                        <button id="closeMenu" class="absolute top-4 right-4 text-gray-600 hover:text-gray-900 focus:outline-none">
+                            <svg class="h-6 w-6" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+                                <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M6 18L18 6M6 6l12 12"></path>
+                            </svg>
+                        </button>
+                        <nav class="mt-8">
+                            <ul class="space-y-4">
+                                <li><a href="#features" class="block py-2 text-gray-800 hover:text-primary transition-colors">Keunggulan</a></li>
+                                <li><button id="mobileServiceBtn" class="w-full text-left py-2 text-gray-800 hover:text-primary transition-colors">Layanan</button></li>
+                                <li><a href="#how" class="block py-2 text-gray-800 hover:text-primary transition-colors">Cara Kerja</a></li>
+                                <li><a href="#portfolio" class="block py-2 text-gray-800 hover:text-primary transition-colors">Portofolio</a></li>
+                                <li><a href="#team" class="block py-2 text-gray-800 hover:text-primary transition-colors">Tim</a></li>
+                                <li><a href="#contact" class="block py-2 text-gray-800 hover:text-primary transition-colors">Kontak</a></li>
+                            </ul>
+                        </nav>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </header>
 
-    <nav id="primary-navigation" class="nav-menu-container" role="navigation" aria-label="Primary Navigation">
-      <ul class="nav-menu">
-        <li><a href="#features">Keunggulan</a></li>
-
-        <li class="dropdown" tabindex="0" aria-haspopup="true" aria-expanded="false" aria-controls="services-menu">
-          <a href="#services" class="dropbtn" aria-haspopup="true" aria-expanded="false" aria-controls="services-menu">Layanan</a>
-          <ul class="dropdown-content" id="services-menu" role="menu" aria-label="Layanan sub-menu">
-            <li><a href="basic.html" role="menuitem">Basic</a></li>
-            <li><a href="#standard" role="menuitem">Standard</a></li>
-            <li><a href="#custom" role="menuitem">Custom</a></li>
-          </ul>
-        </li>
-
-        <li><a href="#how">Cara Kerja</a></li>
-        <li><a href="#portfolio">Portofolio</a></li>
-        <li><a href="#team">Tim Kami</a></li>
-        <li><a href="#faq">FAQ</a></li>
-        <li><a href="#contact">Kontak</a></li>
-        <li><a href="#testimonials">Testimoni</a></li>
-      </ul>
-    </nav>
-  </div>
-</header>
-
-<section class="hero">
-  <div class="container hero-container">
-    <h2>Buat Website & Aplikasi Web Profesional dengan Harga Terjangkau</h2>
-    <p>Mudahkan usaha kecil dan tugas sekolahmu tampil lebih profesional dengan website modern dan mudah digunakan.</p>
-    <a href="#contact" class="btn-primary">Hubungi Kami Sekarang</a>
-  </div>
-</section>
-
-<section id="features" class="container features" aria-label="Keunggulan Jasa">
-  <article class="feature-box">
-    <div class="feature-icon" aria-hidden="true">📱</div>
-    <h3 class="feature-title">Responsif & Mobile Friendly</h3>
-    <p class="feature-desc">Website yang mudah diakses dari handphone maupun komputer kapan saja.</p>
-  </article>
-  <article class="feature-box">
-    <div class="feature-icon" aria-hidden="true">⚡</div>
-    <h3 class="feature-title">Pengerjaan Cepat</h3>
-    <p class="feature-desc">Cepat jadi, sehingga dapat langsung digunakan untuk usaha atau tugasmu.</p>
-  </article>
-  <article class="feature-box">
-    <div class="feature-icon" aria-hidden="true">🔧</div>
-    <h3 class="feature-title">Custom Sesuai Kebutuhan</h3>
-    <p class="feature-desc">Fitur dapat disesuaikan dengan jenis usaha kecil atau kebutuhan tugas sekolah/kuliah.</p>
-  </article>
-  <article class="feature-box">
-    <div class="feature-icon" aria-hidden="true">💰</div>
-    <h3 class="feature-title">Harga Terjangkau</h3>
-    <p class="feature-desc">Paket harga cocok untuk UMKM dan pelajar dengan budget terbatas.</p>
-  </article>
-  <article class="feature-box">
-    <div class="feature-icon" aria-hidden="true">🤝</div>
-    <h3 class="feature-title">Dukungan Ramah</h3>
-    <p class="feature-desc">Layanan cepat & mudah dihubungi, siap membantu kapan saja.</p>
-  </article>
-</section>
-
-<section id="how" class="how-it-works" aria-label="Cara Kerja">
-  <h3>Cara Kerja Mudah</h3>
-  <div class="steps">
-    <div class="step">
-      <div class="step-number">1</div>
-      <h4 class="step-title">Konsultasi Kebutuhan</h4>
-      <p class="step-desc">Kamu hubungi kami dan jelaskan kebutuhan websitemu.</p>
-    </div>
-    <div class="step">
-      <div class="step-number">2</div>
-      <h4 class="step-title">Desain & Pembuatan</h4>
-      <p class="step-desc">Tim kami buatkan design dan website sesuai kebutuhanmu.</p>
-    </div>
-    <div class="step">
-      <div class="step-number">3</div>
-      <h4 class="step-title">Review & Publikasi</h4>
-      <p class="step-desc">Kamu cek, revisi, lalu website langsung bisa digunakan!</p>
-    </div>
-  </div>
-</section>
-
-<section id="portfolio" class="container portfolio" aria-label="Portofolio">
-    <h3>Portofolio Kami</h3>
-    <div class="portfolio-items">
-        <article class="portfolio-item">
-            <img src="website toko.png" alt="Project 1" />
-            <h4>Website Toko Online</h4>
-            <p>
-                <a href="https://alfiyah-warung-digital.lovable.app/" target="_blank" rel="noopener">Lihat Demo</a>
+    <!-- Hero Section -->
+    <section class="relative min-h-screen flex items-center justify-center bg-cover bg-center" style="background-image: linear-gradient(rgba(0,0,0,0.7), rgba(0,0,0,0.7)), url('https://images.pexels.com/photos/3184305/pexels-photo-3184305.jpeg');">
+        <div class="container mx-auto px-4 text-center text-white">
+            <h1 class="text-5xl md:text-6xl font-bold mb-6 font-montserrat">
+                Buat Website Profesional
+            </h1>
+            <p class="text-xl md:text-2xl mb-8 max-w-2xl mx-auto">
+                Wujudkan website impian Anda dengan layanan profesional kami. Solusi terbaik untuk UMKM dan pelajar.
             </p>
-            <p>Website toko online sederhana dengan fitur pembayaran dan katalog produk.</p>
-        </article>
-        <article class="portfolio-item">
-            <img src="website sekolah.png" alt="Project 2" />
-            <h4>Aplikasi Manajemen Sekolah</h4>
-            <p>
-                <a href="https://masdarulhidayah.wuaze.com/?i=1" target="_blank" rel="noopener">Lihat Demo</a>
-            </p>
-            <p>Aplikasi web untuk manajemen data siswa dan guru dengan dashboard interaktif.</p>
-        </article>
-        <article class="portfolio-item">
-            <img src="website jastip.png" alt="Project 3" />
-            <h4>Website Aplikasi Jasa titip</h4>
-            <p>
-                <a href="https://ari2354.github.io/jastipgacoan/" target="_blank" rel="noopener">Lihat Demo</a>
-            </p>
-            <p>Website Aplikasi dengan sistem Jasa titip berdasarkan pesanan penglangga</p>
-        </article>
-    </div>
-</section>
+            <a href="#contact" class="inline-block bg-accent text-secondary font-bold py-4 px-8 rounded-full hover:bg-opacity-90 transition-all transform hover:scale-105">
+                Mulai Sekarang
+            </a>
+        </div>
+    </section>
 
-<section id="team" class="container team" aria-label="Tim Kami">
-  <h3>Tim Profesional Kami</h3>
-  <div class="team-members">
-    <article class="team-member">
-      <img src="fotoku.jpg" alt="Anggota Tim 1" />
-      <h4>Ari faidz wahyu laksana,S.Ti</h4>
-      <p>Web Developer & Manager</p>
-    </article>
-    <article class="team-member">
-      <img src="fotonya.jpg" alt="Anggota Tim 2" />
-      <h4>Puji Astutik,S.Tr.p</h4>
-      <p>Asisten Manager</p>
-    </article>
+    <!-- Features Section -->
+    <section id="features" class="py-20 bg-white">
+        <div class="container mx-auto px-4">
+            <h2 class="text-4xl font-bold text-center mb-16 font-montserrat reveal" data-effect="fade-bottom">Keunggulan Kami</h2>
+            <div class="grid grid-cols-1 md:grid-cols-3 gap-8">
+                <div class="feature-card">
+                    <div class="text-5xl mb-6 text-primary">
+                        <i class="fas fa-mobile-alt"></i>
+                    </div>
+                    <h3 class="text-xl font-bold mb-4">Responsif & Mobile Friendly</h3>
+                    <p class="text-gray-600">Tampilan website yang sempurna di semua perangkat</p>
+                </div>
+                <div class="feature-card">
+                    <div class="text-5xl mb-6 text-primary">
+                        <i class="fas fa-bolt"></i>
+                    </div>
+                    <h3 class="text-xl font-bold mb-4">Performa Tinggi</h3>
+                    <p class="text-gray-600">Website cepat dan optimal untuk pengalaman terbaik</p>
+                </div>
+                <div class="feature-card">
+                    <div class="text-5xl mb-6 text-primary">
+                        <i class="fas fa-shield-alt"></i>
+                    </div>
+                    <h3 class="text-xl font-bold mb-4">Keamanan Terjamin</h3>
+                    <p class="text-gray-600">Proteksi maksimal untuk data dan transaksi Anda</p>
+                </div>
+            </div>
+        </div>
+    </section>
 
-<section id="faq" class="container faq" aria-label="Frequently Asked Questions">
-  <h3>FAQ - Pertanyaan yang Sering Diajukan</h3>
-  <div class="faq-item">
-    <h4>Berapa lama waktu pengerjaan website?</h4>
-    <p>Waktu pengerjaan biasanya 1-2 minggu tergantung kompleksitas proyek.</p>
-  </div>
-  <div class="faq-item">
-    <h4>Apakah saya bisa meminta revisi?</h4>
-    <p>Tentu, kami menyediakan revisi sesuai kesepakatan dalam paket.</p>
-  </div>
-  <div class="faq-item">
-    <h4>Apakah website saya akan responsif?</h4>
-    <p>Ya, semua website yang kami buat responsif dan mobile friendly.</p>
-  </div>
-</section>
+    <!-- Portfolio Section -->
+    <section id="portfolio" class="py-20 bg-gray-50">
+        <div class="container mx-auto px-4">
+            <h2 class="text-4xl font-bold text-center mb-16 font-montserrat reveal" data-effect="fade-bottom">Portfolio Terbaru</h2>
+            <div class="grid grid-cols-1 md:grid-cols-3 gap-8 reveal" data-effect="fade-up">
+                <div class="portfolio-card">
+                    <img src="website toko.png" alt="Website Toko" class="w-full h-48 object-cover rounded-t-lg">
+                    <div class="p-6">
+                        <h3 class="text-xl font-bold mb-2">Website Toko Online</h3>
+                        <p class="text-gray-600 mb-4">E-commerce modern dengan sistem pembayaran terintegrasi</p>
+                        <a href="https://alfiyah-warung-digital.lovable.app/" target="_blank" class="text-primary hover:text-accent">Lihat Detail →</a>
+                    </div>
+                </div>
+                <div class="portfolio-card">
+                    <img src="website sekolah.png" alt="Website Sekolah" class="w-full h-48 object-cover rounded-t-lg">
+                    <div class="p-6">
+                        <h3 class="text-xl font-bold mb-2">Sistem Manajemen Sekolah</h3>
+                        <p class="text-gray-600 mb-4">Platform pendidikan dengan fitur lengkap</p>
+                        <a href="https://masdarulhidayah.wuaze.com/?i=1" target="_blank" class="text-primary hover:text-accent">Lihat Detail →</a>
+                    </div>
+                </div>
+                <div class="portfolio-card">
+                    <img src="website jastip.png" alt="Website Jastip" class="w-full h-48 object-cover rounded-t-lg">
+                    <div class="p-6">
+                        <h3 class="text-xl font-bold mb-2">Aplikasi Jasa Titip</h3>
+                        <p class="text-gray-600 mb-4">Platform jasa titip dengan sistem tracking</p>
+                        <a href="https://ari2354.github.io/jastipgacoan/" target="_blank" class="text-primary hover:text-accent">Lihat Detail →</a>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
 
-<section id="contact" class="container contact" aria-label="Kontak Kami">
-  <h3>Hubungi Kami</h3>
-  <form id="contactForm" novalidate>
-    <label for="name">Nama Lengkap:</label>
-    <input type="text" id="name" name="name" required />
-    <label for="email">Email:</label>
-    <input type="email" id="email" name="email" required />
-    <label for="message">Pesan:</label>
-    <textarea id="message" name="message" rows="5" required></textarea>
-    <button type="submit" class="btn-primary">Kirim Pesan</button>
-  </form>
-  <div id="formMessage" role="alert" aria-live="polite"></div>
-  <div class="map-container">
-    <iframe
-      src="https://www.google.com/maps/embed?pb=!1m18!1m12!1m3!1d3958.1234567890123!2d110.123456789!3d-7.123456789!2m3!1f0!2f0!3f0!3m2!1i1024!2i768!4f13.1!3m3!1m2!1s0x2e7a1234567890ab%3A0x123456789abcdef!2sYour%20Business%20Location!5e0!3m2!1sen!2sid!4v1234567890123"
-      width="100%" height="300" style="border:0;" allowfullscreen="" loading="lazy" referrerpolicy="no-referrer-when-downgrade"
-      title="Lokasi Bisnis Kami"></iframe>
-  </div>
-</section>
+    <!-- Team Section -->
+    <section id="team" class="py-20 bg-white">
+        <div class="container mx-auto px-4">
+            <h2 class="text-4xl font-bold text-center mb-16 font-montserrat reveal" data-effect="fade-bottom">Tim Profesional Kami</h2>
+            <div class="grid grid-cols-1 md:grid-cols-2 gap-12 max-w-4xl mx-auto reveal" data-effect="fade-up">
+                <div class="team-card">
+                    <img src="fotoku.jpg" alt="Ari Faidz" class="w-48 h-48 rounded-full mx-auto mb-6 object-cover">
+                    <h3 class="text-2xl font-bold mb-2">Ari faidz wahyu laksana, S.Ti</h3>
+                    <p class="text-gray-600 mb-4">Web Developer & Manager</p>
+                    <div class="flex justify-center space-x-4">
+                        <a href="#" class="text-gray-400 hover:text-primary"><i class="fab fa-linkedin"></i></a>
+                        <a href="#" class="text-gray-400 hover:text-primary"><i class="fab fa-github"></i></a>
+                    </div>
+                </div>
+                <div class="team-card">
+                    <img src="fotonya.jpg" alt="Puji Astutik" class="w-48 h-48 rounded-full mx-auto mb-6 object-cover">
+                    <h3 class="text-2xl font-bold mb-2">Puji Astutik, S.Tr.p</h3>
+                    <p class="text-gray-600 mb-4">Asisten Manager</p>
+                    <div class="flex justify-center space-x-4">
+                        <a href="#" class="text-gray-400 hover:text-primary"><i class="fab fa-linkedin"></i></a>
+                        <a href="#" class="text-gray-400 hover:text-primary"><i class="fab fa-github"></i></a>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
 
-<section id="testimonials" class="testimonials" aria-label="Testimoni Pelanggan">
-  <h3>Apa Kata Pelanggan Kami?</h3>
-  <div class="testimonial" aria-label="Testimoni dari Budi, pemilik warung sembako">
-    "Website yang dibuat sangat membantu usaha saya dikenal lebih luas. Proses cepat dan mudah, harganya juga sangat terjangkau untuk bisnis kecil seperti saya."
-    <div class="testimonial-author">- Budi, Pemilik Warung Sembako</div>
-  </div>
-  <div class="testimonial" aria-label="Testimoni dari Ani, pelajar SMA">
-    "Saya butuh website untuk tugas kuliah dan mereka sangat membantu, membuatnya sesuai waktu dan gampang dipakai. Sangat direkomendasikan!"
-    <div class="testimonial-author">- Ani, Pelajar SMA</div>
-  </div>
-</section>
+    <!-- Social Media Section -->
+    <section id="contact" class="py-20 bg-gray-50">
+        <div class="container mx-auto px-4">
+            <h2 class="text-4xl font-bold text-center mb-16 font-montserrat reveal" data-effect="fade-bottom">Hubungi Kami</h2>
+            <div class="max-w-4xl mx-auto">
+                <div class="grid grid-cols-1 md:grid-cols-3 gap-8 reveal" data-effect="fade-up">
+                    <!-- WhatsApp Business -->
+                    <a href="https://wa.me/6281234567890" target="_blank" class="flex flex-col items-center p-6 bg-white rounded-xl shadow-lg hover:shadow-xl transition-shadow">
+                        <div class="w-16 h-16 flex items-center justify-center bg-green-500 text-white rounded-full mb-4">
+                            <i class="fab fa-whatsapp text-3xl"></i>
+                        </div>
+                        <h3 class="text-xl font-semibold text-gray-800 mb-2">WhatsApp Business</h3>
+                        <p class="text-gray-600 text-center">Chat langsung dengan tim kami</p>
+                        <span class="mt-4 text-green-500 font-medium">+62 812-3456-7890</span>
+                    </a>
 
-<footer>
-  <p>© 2024 Jasa Pembuatan Website untuk UMKM & Pelajar. Semua hak cipta dilindungi.</p>
-  <p>Hubungi kami: <a href="mailto:contact@yourdomain.com" style="color:#e9c46a;">contact@yourdomain.com</a></p>
-</footer>
+                    <!-- TikTok -->
+                    <a href="https://tiktok.com/@webdevpro" target="_blank" class="flex flex-col items-center p-6 bg-white rounded-xl shadow-lg hover:shadow-xl transition-shadow">
+                        <div class="w-16 h-16 flex items-center justify-center bg-black text-white rounded-full mb-4">
+                            <i class="fab fa-tiktok text-3xl"></i>
+                        </div>
+                        <h3 class="text-xl font-semibold text-gray-800 mb-2">TikTok</h3>
+                        <p class="text-gray-600 text-center">Lihat tutorial dan tips menarik</p>
+                        <span class="mt-4 text-gray-800 font-medium">@webdevpro</span>
+                    </a>
 
+                    <!-- Instagram -->
+                    <a href="https://instagram.com/webdevpro" target="_blank" class="flex flex-col items-center p-6 bg-white rounded-xl shadow-lg hover:shadow-xl transition-shadow">
+                        <div class="w-16 h-16 flex items-center justify-center bg-gradient-to-tr from-yellow-500 via-pink-500 to-purple-500 text-white rounded-full mb-4">
+                            <i class="fab fa-instagram text-3xl"></i>
+                        </div>
+                        <h3 class="text-xl font-semibold text-gray-800 mb-2">Instagram</h3>
+                        <p class="text-gray-600 text-center">Ikuti update terbaru kami</p>
+                        <span class="mt-4 text-gray-800 font-medium">@webdevpro</span>
+                    </a>
+                </div>
+
+                <!-- Business Hours -->
+                <div class="mt-12 text-center reveal" data-effect="fade-up">
+                    <h3 class="text-xl font-semibold text-gray-800 mb-4">Jam Operasional</h3>
+                    <p class="text-gray-600">Senin - Jumat: 09:00 - 17:00 WIB</p>
+                    <p class="text-gray-600">Sabtu: 09:00 - 15:00 WIB</p>
+                    <p class="text-gray-500 mt-2">Minggu & Hari Libur: Tutup</p>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Footer -->
+    <footer class="bg-secondary text-white py-12">
+        <div class="container mx-auto px-4">
+            <div class="grid grid-cols-1 md:grid-cols-3 gap-8">
+                <div>
+                    <h3 class="text-xl font-bold mb-4">WebDevPro</h3>
+                    <p class="text-gray-300">Solusi website profesional untuk bisnis dan pendidikan Anda.</p>
+                </div>
+                <div>
+                    <h3 class="text-xl font-bold mb-4">Kontak</h3>
+                    <p class="text-gray-300">Email: info@webdevpro.com</p>
+                    <p class="text-gray-300">Phone: +62 123 456 789</p>
+                </div>
+                <div>
+                    <h3 class="text-xl font-bold mb-4">Ikuti Kami</h3>
+                    <div class="flex space-x-4">
+                        <a href="#" class="text-gray-300 hover:text-accent"><i class="fab fa-facebook"></i></a>
+                        <a href="#" class="text-gray-300 hover:text-accent"><i class="fab fa-twitter"></i></a>
+                        <a href="#" class="text-gray-300 hover:text-accent"><i class="fab fa-instagram"></i></a>
+                        <a href="#" class="text-gray-300 hover:text-accent"><i class="fab fa-linkedin"></i></a>
+                    </div>
+                </div>
+            </div>
+            <div class="border-t border-gray-700 mt-8 pt-8 text-center">
+                <p class="text-gray-300">© 2024 WebDevPro. All rights reserved.</p>
+            </div>
+        </div>
+    </footer>
+
+    <script src="scripts.js"></script>
 </body>
 </html>
