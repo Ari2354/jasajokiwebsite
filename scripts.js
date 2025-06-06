@@ -207,24 +207,38 @@ function initMobileNav() {
     const mobileServiceBtn = document.getElementById('mobileServiceBtn');
     const serviceModal = document.getElementById('serviceModal');
     
-    function openMenu() {
-        mobileMenu.classList.remove('hidden');
-        setTimeout(() => {
-            mobileMenuContent.classList.remove('translate-x-full');
-            menuToggle.setAttribute('aria-expanded', 'true');
+    function toggleMenu(show) {
+        const menuContent = mobileMenu.querySelector('.mobile-menu-content');
+        
+        if (show) {
             document.body.style.overflow = 'hidden';
-        }, 10);
+            mobileMenu.classList.remove('hidden');
+            // Force a reflow to ensure the transition works
+            mobileMenu.offsetHeight;
+            menuContent.classList.remove('translate-x-full');
+            menuToggle.setAttribute('aria-expanded', 'true');
+        } else {
+            document.body.style.overflow = '';
+            menuContent.classList.add('translate-x-full');
+            menuToggle.setAttribute('aria-expanded', 'false');
+            
+            const onTransitionEnd = () => {
+                if (menuContent.classList.contains('translate-x-full')) {
+                    mobileMenu.classList.add('hidden');
+                }
+                menuContent.removeEventListener('transitionend', onTransitionEnd);
+            };
+            
+            menuContent.addEventListener('transitionend', onTransitionEnd);
+        }
+    }
+
+    function openMenu() {
+        toggleMenu(true);
     }
     
     function closeMenuHandler() {
-        if (mobileMenuContent) {
-            mobileMenuContent.classList.add('translate-x-full');
-            menuToggle.setAttribute('aria-expanded', 'false');
-            document.body.style.overflow = '';
-            setTimeout(() => {
-                mobileMenu.classList.add('hidden');
-            }, 300);
-        }
+        toggleMenu(false);
     }
     
     if (menuToggle && mobileMenu && closeMenu) {
