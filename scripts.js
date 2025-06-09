@@ -209,31 +209,35 @@ function initMobileNav() {
     const mobileServiceBtn = document.getElementById('mobileServiceBtn');
     const serviceModal = document.getElementById('serviceModal');
     
-    function toggleMenu(show) {
-        const menuContent = mobileMenu.querySelector('.mobile-menu-content');
-        
-        if (show) {
-            document.body.style.overflow = 'hidden';
-            mobileMenu.classList.remove('hidden');
-            // Force a reflow to ensure the transition works
-            mobileMenu.offsetHeight;
-            menuContent.classList.remove('translate-x-full');
-            menuToggle.setAttribute('aria-expanded', 'true');
-        } else {
-            document.body.style.overflow = '';
-            menuContent.classList.add('translate-x-full');
-            menuToggle.setAttribute('aria-expanded', 'false');
-            
-            const onTransitionEnd = () => {
-                if (menuContent.classList.contains('translate-x-full')) {
-                    mobileMenu.classList.add('hidden');
-                }
-                menuContent.removeEventListener('transitionend', onTransitionEnd);
-            };
-            
-            menuContent.addEventListener('transitionend', onTransitionEnd);
-        }
+function toggleMenu(show) {
+    const menuContent = mobileMenu.querySelector('div');
+    if (!menuContent) {
+        console.error('Menu content element not found');
+        return;
     }
+    
+    if (show) {
+        document.body.style.overflow = 'hidden';
+        mobileMenu.classList.remove('hidden');
+        // Force a reflow to ensure the transition works
+        mobileMenu.offsetHeight;
+        menuContent.classList.remove('translate-x-full');
+        menuToggle.setAttribute('aria-expanded', 'true');
+    } else {
+        document.body.style.overflow = '';
+        menuContent.classList.add('translate-x-full');
+        menuToggle.setAttribute('aria-expanded', 'false');
+        
+        const onTransitionEnd = () => {
+            if (menuContent.classList.contains('translate-x-full')) {
+                mobileMenu.classList.add('hidden');
+            }
+            menuContent.removeEventListener('transitionend', onTransitionEnd);
+        };
+        
+        menuContent.addEventListener('transitionend', onTransitionEnd);
+    }
+}
 
     function openMenu() {
         toggleMenu(true);
