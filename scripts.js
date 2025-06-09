@@ -18,13 +18,15 @@ function initServiceModal() {
     // Show modal immediately on page load
     if (modal) {
         modal.classList.add('show');
+        modal.focus();
     }
     
     // Show modal on Layanan click
-    if (showModalBtn) {
+    if (showModalBtn && modal) {
         showModalBtn.addEventListener('click', (e) => {
             e.preventDefault();
             modal.classList.add('show');
+            modal.focus();
         });
     }
     

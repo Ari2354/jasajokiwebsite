@@ -1,40 +1,62 @@
 <!DOCTYPE html>
 <html lang="id">
 <head>
-    <meta charset="UTF-8">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1" />
     <title>Paket Standard - WebDevPro</title>
-    
-    <!-- Google Fonts -->
-    <link href="https://fonts.googleapis.com/css2?family=Poppins:wght@400;500;600;700&display=swap" rel="stylesheet">
-    
-    <!-- Font Awesome -->
-    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0-beta3/css/all.min.css">
-    
-    <!-- Tailwind CSS -->
+    <meta name="description" content="Paket Standard Web Development dari WebDevPro" />
+    <link href="https://fonts.googleapis.com/css2?family=Poppins:wght@400;500;600;700&display=swap" rel="stylesheet" />
     <script src="https://cdn.tailwindcss.com"></script>
-    
-    <script>
-        tailwind.config = {
-            theme: {
-                extend: {
-                    colors: {
-                        primary: '#2a9d8f',
-                        secondary: '#264653',
-                        accent: '#e9c46a',
-                    }
-                }
-            }
-        }
-    </script>
-    
-    <link rel="stylesheet" href="styles.css">
+    <link rel="stylesheet" href="styles.css" />
 </head>
 <body class="bg-gray-50">
     <!-- Header -->
-    <header class="fixed w-full bg-white shadow-lg z-50">
-        <div class="container mx-auto px-4 py-4">
-            <a href="/" class="text-2xl font-bold text-primary">WebDev<span class="text-secondary">Pro</span></a>
+    <header class="sticky top-0 w-full bg-gradient-to-r from-primary to-secondary backdrop-blur-sm shadow-lg z-50">
+        <div class="container mx-auto px-4 py-4 flex items-center justify-between">
+            <div class="flex items-center space-x-4">
+                <a href="#" class="text-2xl font-bold text-primary">
+                    WebDev<span class="text-accent">Pro</span>
+                </a>
+            </div>
+            
+            <nav class="hidden md:flex items-center space-x-8">
+                <a href="#features" class="nav-link">Keunggulan</a>
+                <a href="#services" class="nav-link" id="showServiceModal">Layanan</a>
+                <a href="#how" class="nav-link">Cara Kerja</a>
+                <a href="#portfolio" class="nav-link">Portofolio</a>
+                <a href="#team" class="nav-link">Tim</a>
+                <a href="#contact" class="nav-link">Kontak</a>
+                <a href="login.html" class="nav-link">Login</a>
+            </nav>
+            
+            <button id="menuToggle" class="md:hidden text-gray-600 hover:text-gray-900 focus:outline-none transition-colors duration-200 p-2 rounded-lg hover:bg-gray-100" aria-label="Toggle Menu" aria-expanded="false">
+                <svg class="h-6 w-6 transform transition-transform duration-200" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+                    <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M4 6h16M4 12h16M4 18h16"></path>
+                </svg>
+            </button>
+
+            <!-- Mobile Menu -->
+            <div id="mobileMenu" class="fixed inset-0 bg-black bg-opacity-50 backdrop-blur-sm z-50 hidden md:hidden" aria-hidden="true">
+                <div class="fixed right-0 top-0 h-full w-64 bg-white shadow-lg transform translate-x-full transition-transform duration-300 ease-in-out">
+                    <div class="p-6">
+                        <button id="closeMenu" class="absolute top-4 right-4 text-gray-600 hover:text-gray-900 focus:outline-none">
+                            <svg class="h-6 w-6" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+                                <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M6 18L18 6M6 6l12 12"></path>
+                            </svg>
+                        </button>
+                        <nav class="mt-8">
+                            <ul class="space-y-4">
+                                <li><a href="#features" class="block py-2 text-gray-800 hover:text-primary transition-colors">Keunggulan</a></li>
+                                <li><button id="mobileServiceBtn" class="w-full text-left py-2 text-gray-800 hover:text-primary transition-colors">Layanan</button></li>
+                                <li><a href="#how" class="block py-2 text-gray-800 hover:text-primary transition-colors">Cara Kerja</a></li>
+                                <li><a href="#portfolio" class="block py-2 text-gray-800 hover:text-primary transition-colors">Portofolio</a></li>
+                                <li><a href="#team" class="block py-2 text-gray-800 hover:text-primary transition-colors">Tim</a></li>
+                                <li><a href="#contact" class="block py-2 text-gray-800 hover:text-primary transition-colors">Kontak</a></li>
+                            </ul>
+                        </nav>
+                    </div>
+                </div>
+            </div>
         </div>
     </header>
 
@@ -102,7 +124,7 @@
                             <h2 class="text-2xl font-semibold text-gray-800 mb-4">Harga Paket:</h2>
                             <div class="bg-gray-50 rounded-lg p-6 border-2 border-primary">
                                 <p class="text-gray-600">Mulai dari</p>
-                                <p class="text-5xl font-bold text-primary mt-2 mb-4">Rp 100K</p>
+                                <p class="text-5xl font-bold text-primary mt-2 mb-4">Rp 200K</p>
                                 <p class="text-gray-500 text-sm">*Harga dapat berubah sesuai kebutuhan</p>
                                 <div class="mt-4 p-4 bg-white rounded-lg">
                                     <h3 class="font-semibold text-gray-800 mb-2">Yang Cocok Untuk:</h3>
@@ -116,64 +138,28 @@
                             </div>
                         </div>
                     </div>
-                </div>
-                
-                <!-- Order Form -->
-                <div class="bg-white rounded-xl shadow-lg p-8">
-                    <h2 class="text-2xl font-semibold text-gray-800 mb-6">Form Pemesanan</h2>
-                    
-                    <div class="grid grid-cols-1 md:grid-cols-2 gap-8">
-                        <!-- Login Section -->
-                        <div class="order-2 md:order-1">
-                            <div class="bg-gray-50 rounded-lg p-6">
-                                <h3 class="text-lg font-semibold text-gray-800 mb-4">Sudah punya akun?</h3>
-                                <form id="loginForm" class="space-y-4">
-                                    <div>
-                                        <label for="email" class="block text-sm font-medium text-gray-700 mb-1">Email</label>
-                                        <input type="email" id="email" name="email" class="w-full px-4 py-2 rounded-lg border border-gray-300 focus:ring-2 focus:ring-primary focus:border-primary">
-                                    </div>
-                                    <div>
-                                        <label for="password" class="block text-sm font-medium text-gray-700 mb-1">Password</label>
-                                        <input type="password" id="password" name="password" class="w-full px-4 py-2 rounded-lg border border-gray-300 focus:ring-2 focus:ring-primary focus:border-primary">
-                                    </div>
-                                    <button type="submit" class="w-full bg-primary text-white py-2 px-4 rounded-lg hover:bg-opacity-90 transition-colors">
-                                        Login
-                                    </button>
-                                </form>
-                            </div>
-                        </div>
-                        
-                        <!-- Register Section -->
-                        <div class="order-1 md:order-2">
-                            <h3 class="text-lg font-semibold text-gray-800 mb-4">Buat akun baru</h3>
-                            <form id="registerForm" class="space-y-4">
-                                <div>
-                                    <label for="name" class="block text-sm font-medium text-gray-700 mb-1">Nama Lengkap</label>
-                                    <input type="text" id="name" name="name" class="w-full px-4 py-2 rounded-lg border border-gray-300 focus:ring-2 focus:ring-primary focus:border-primary">
-                                </div>
-                                <div>
-                                    <label for="newEmail" class="block text-sm font-medium text-gray-700 mb-1">Email</label>
-                                    <input type="email" id="newEmail" name="newEmail" class="w-full px-4 py-2 rounded-lg border border-gray-300 focus:ring-2 focus:ring-primary focus:border-primary">
-                                </div>
-                                <div>
-                                    <label for="newPassword" class="block text-sm font-medium text-gray-700 mb-1">Password</label>
-                                    <input type="password" id="newPassword" name="newPassword" class="w-full px-4 py-2 rounded-lg border border-gray-300 focus:ring-2 focus:ring-primary focus:border-primary">
-                                </div>
-                                <div>
-                                    <label for="phone" class="block text-sm font-medium text-gray-700 mb-1">Nomor WhatsApp</label>
-                                    <input type="tel" id="phone" name="phone" class="w-full px-4 py-2 rounded-lg border border-gray-300 focus:ring-2 focus:ring-primary focus:border-primary">
-                                </div>
-                                <button type="submit" class="w-full bg-secondary text-white py-2 px-4 rounded-lg hover:bg-opacity-90 transition-colors">
-                                    Daftar & Lanjutkan Pemesanan
-                                </button>
-                            </form>
-                        </div>
-                    </div>
+                    <button id="orderBtn" class="w-full bg-primary text-gray py-3 px-6 rounded-lg hover:bg-opacity-90 transition-colors text-lg font-semibold">
+                        Pilih Layanan Ini
+                    </button>
                 </div>
             </div>
         </div>
     </main>
 
-    <script src="scripts.js"></script>
+    <script>
+        // Simulated login check function
+        function isLoggedIn() {
+            return localStorage.getItem('loggedIn') === 'true';
+        }
+
+        document.getElementById('orderBtn').addEventListener('click', function() {
+            if (isLoggedIn()) {
+                window.location.href = 'order.html';
+            } else {
+                alert('Silakan login terlebih dahulu untuk melanjutkan pemesanan.');
+                window.location.href = 'login.html';
+            }
+        });
+    </script>
 </body>
 </html>
